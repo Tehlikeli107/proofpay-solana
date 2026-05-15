@@ -10,6 +10,7 @@ The goal is simple: connect a delivered work item to an on-chain Solana payment 
 - Generate a Solana Pay compatible payment URL.
 - Attach proof of work such as a GitHub PR, demo, document, or delivery link.
 - Turn a verified transaction signature into a public receipt path.
+- Model USDt checkout orders, payment intents, confirmations, and receipts for a Tether WDK commerce starter.
 - Keep the core logic testable and reusable for a future web dashboard.
 
 ## Why Solana
@@ -34,6 +35,40 @@ This repository currently contains the first grant proof-of-work package:
 npm install
 npm test
 npm run typecheck
+```
+
+## WDK Commerce Starter
+
+WDK Commerce Starter is the Tether-focused commerce demo for ProofPay. It shows a cloneable USDt checkout flow with product, order, payment intent, deterministic mock WDK confirmation, and receipt output.
+
+The first milestone uses a mock WDK adapter so reviewers can run the flow without funded wallets. The adapter boundary is intentionally small so a real WDK module can replace the mock in the next milestone.
+
+```ts
+import {
+  confirmOrderPayment,
+  createCheckoutOrder,
+  createCommerceReceipt,
+  createMockWdkPaymentAdapter
+} from "./src/core";
+
+const adapter = createMockWdkPaymentAdapter();
+const merchantAddress = await adapter.createAddress();
+
+const order = createCheckoutOrder({
+  productName: "ProofPay Hoodie",
+  unitPrice: 29,
+  quantity: 1,
+  token: "USDT",
+  merchantAddress,
+  proofUrl: "https://github.com/Tehlikeli107/proofpay-solana"
+});
+
+const confirmation = await adapter.checkPayment(order.paymentIntent.id);
+const paidOrder = confirmOrderPayment(order, {
+  ...confirmation,
+  amount: order.totalAmount
+});
+const receipt = createCommerceReceipt(paidOrder);
 ```
 
 ## Current Core API

@@ -132,6 +132,53 @@ dd {
   padding: 28px;
 }
 
+.commerce-flow {
+  margin-top: 18px;
+  padding: 28px 0 8px;
+}
+
+.commerce-flow > h2 {
+  max-width: 620px;
+}
+
+.checkout-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 20px;
+}
+
+.checkout-grid article {
+  background: #fff;
+  border: 1px solid #dce3ee;
+  border-radius: 8px;
+  min-height: 178px;
+  padding: 22px;
+}
+
+.checkout-grid span {
+  color: #0f766e;
+  display: block;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+
+.checkout-grid strong {
+  display: block;
+  font-size: 19px;
+  margin-bottom: 12px;
+  overflow-wrap: anywhere;
+}
+
+.checkout-grid p {
+  color: #516072;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
 dl {
   display: grid;
   gap: 12px;
@@ -156,7 +203,8 @@ dd {
 
 @media (max-width: 760px) {
   .flow,
-  .receipt {
+  .receipt,
+  .checkout-grid {
     grid-template-columns: 1fr;
   }
 
