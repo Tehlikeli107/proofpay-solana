@@ -70,15 +70,30 @@ Expected result:
 - `src/core/payment-request.ts`: generic payment request and receipt primitives.
 - `src/commerce/checkout.ts`: checkout order, payment confirmation, and commerce receipt logic.
 - `src/wdk/payment-adapter.ts`: WDK-facing adapter interface plus deterministic mock adapter.
+- `src/commerce/demo.ts`: executable reviewer demo flow.
 - `test/commerce-checkout.test.ts`: checkout and receipt tests.
 - `test/wdk-payment-adapter.test.ts`: mock adapter tests.
+- `test/wdk-commerce-demo.test.ts`: end-to-end mock checkout confirmation and receipt demo test.
 - `web/index.html`: static reviewer demo.
 
 ## Current Scope Boundary
 
 The current repository intentionally does not claim to process live funds. It demonstrates the payment state machine, receipt model, and WDK adapter boundary in a testable form. The real WDK signing, broadcasting, and status tracking work is the next milestone proposed for the bounty agreement.
 
+## Runnable Demo Flow
+
+```powershell
+npm test -- wdk-commerce-demo
+```
+
+This runs the reviewer-friendly checkout flow from `src/commerce/demo.ts`:
+
+1. Create a mock WDK merchant address.
+2. Create a USDt checkout order.
+3. Create a WDK-shaped payment intent.
+4. Confirm payment through the mock WDK adapter.
+5. Generate a commerce receipt.
+
 ## Why This Is Useful
 
 WDK ecommerce and wallet developers need repeatable patterns for checkout state, payment confirmation, and receipt evidence. This repository keeps those concerns small and modular so a real WDK integration can be added without rewriting the commerce domain model.
-

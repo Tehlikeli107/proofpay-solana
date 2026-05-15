@@ -48,6 +48,8 @@ Reviewer materials:
 
 - `docs/tether-reviewer-guide.md`
 - `docs/tether-demo-video-script.md`
+- `docs/wdk-protocol-payment-receipts-spec.md`
+- `docs/tether-scope-alignment-note.md`
 - `docs/tether-wdk-ecommerce-bounty-application.md`
 - `docs/tether-wdk-module-bounty-application.md`
 
@@ -83,6 +85,12 @@ const paidOrder = confirmOrderPayment(order, {
   amount: order.totalAmount
 });
 const receipt = createCommerceReceipt(paidOrder);
+```
+
+Reviewer demo:
+
+```powershell
+npm test -- wdk-commerce-demo
 ```
 
 ## Current Core API

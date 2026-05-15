@@ -94,6 +94,12 @@ Show:
 - Passing Vitest output.
 - Passing TypeScript output.
 
+Optional focused demo command:
+
+```powershell
+npm test -- wdk-commerce-demo
+```
+
 ## Scene 6: Bounty Fit
 
 Duration: 30-45 seconds.
@@ -105,6 +111,7 @@ Narration:
 Show:
 
 - `docs/tether-reviewer-guide.md`
+- `docs/wdk-protocol-payment-receipts-spec.md`
 - `docs/tether-wdk-ecommerce-bounty-application.md`
 - `docs/tether-wdk-module-bounty-application.md`
 
@@ -115,4 +122,3 @@ Duration: 10-15 seconds.
 Narration:
 
 > The current proof of work is intentionally scoped and testable. With scope alignment from the Tether WDK team, the next step is to replace the mock adapter with real WDK integration and submit the final deliverables.
-
