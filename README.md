@@ -37,6 +37,20 @@ npm test
 npm run typecheck
 ```
 
+## Tether Submissions
+
+This repository supports two Tether WDK bounty applications:
+
+- WDK in eCommerce: a custom headless ecommerce reference implementation for USDt checkout flows.
+- WDK Module: `wdk-protocol-payment-receipts`, a smaller module proposal for payment confirmation, receipt generation, and lightweight payment reporting.
+
+Reviewer materials:
+
+- `docs/tether-reviewer-guide.md`
+- `docs/tether-demo-video-script.md`
+- `docs/tether-wdk-ecommerce-bounty-application.md`
+- `docs/tether-wdk-module-bounty-application.md`
+
 ## WDK Commerce Starter
 
 WDK Commerce Starter is the Tether-focused commerce demo for ProofPay. It shows a cloneable USDt checkout flow with product, order, payment intent, deterministic mock WDK confirmation, and receipt output.
