@@ -1,4 +1,4 @@
-export type PaymentToken = "SOL" | "USDC" | "USDG";
+export type PaymentToken = "SOL" | "USDC" | "USDG" | "USDT";
 
 export type CreatePaymentRequestInput = {
   recipient: string;
@@ -86,7 +86,7 @@ function validatePaymentRequest(input: CreatePaymentRequestInput): void {
   if (!Number.isFinite(input.amount) || input.amount <= 0) {
     throw new Error("amount must be greater than 0");
   }
-  if (!["SOL", "USDC", "USDG"].includes(input.token)) {
+  if (!["SOL", "USDC", "USDG", "USDT"].includes(input.token)) {
     throw new Error("unsupported token");
   }
   if (!input.title.trim()) {

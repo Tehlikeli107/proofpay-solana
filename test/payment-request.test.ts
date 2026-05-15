@@ -22,6 +22,19 @@ describe("payment request core", () => {
     expect(request.proofUrl).toBe("https://github.com/CapSoftware/Cap/pull/1821");
   });
 
+  it("supports USDt requests for Tether commerce flows", () => {
+    const request = createPaymentRequest({
+      recipient: "merchant-usdt-address",
+      amount: 19.99,
+      token: "USDT",
+      title: "WDK Commerce Starter order",
+      proofUrl: "https://github.com/Tehlikeli107/proofpay-solana"
+    });
+
+    expect(request.token).toBe("USDT");
+    expect(request.status).toBe("pending");
+  });
+
   it("rejects invalid payment request inputs before a Solana Pay URL is generated", () => {
     expect(() =>
       createPaymentRequest({
