@@ -1,0 +1,19 @@
+{
+  "name": "proofpay-solana",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Open-source Solana Pay proof-of-work receipt tool for contributor payments.",
+  "scripts": {
+    "build": "tsc --noEmit",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.14"
+  }
+}
